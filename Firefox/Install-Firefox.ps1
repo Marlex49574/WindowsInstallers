@@ -96,8 +96,7 @@ function Download-Firefox {
         }
         
         # Download with progress
-        $webClient = New-Object System.Net.WebClient
-        $webClient.DownloadFile($url, $installerFile)
+        Invoke-WebRequest -Uri $url -OutFile $installerFile -UseBasicParsing
         
         Write-Log "Download completed: $installerFile"
         return $installerFile
